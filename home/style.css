@@ -1,0 +1,129 @@
+.nav {
+    font-size: 12px;
+}
+
+.ads {
+    font-size: 12px;
+}
+
+.footer {
+    font-size: 12px;
+}
+
+.calc-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 6px;
+    justify-content: space-around;
+}
+
+
+@media all and (max-width: 767px) {
+    .DH-container {
+        min-width: 330px;
+        font-size: 16px;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .DH-container {
+        font-size: 24px;
+    }
+}
+
+.viewPort {
+    display: flex;
+    flex-direction: column;
+}
+
+.viewPort#formula,
+.viewPort#result {
+    margin: 1px;
+    border: 2px solid black;
+}
+
+.inputButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.keypad {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 2px;
+    gap: 2px;
+    padding: 2px;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 2px;
+    flex: .25;
+    gap: 2px;
+    padding: 2px;
+    justify-content: space-evenly;
+}
+
+.opBtn {
+    width: 100%;
+    aspect-ratio: 1/1;
+    padding: 0px 12px;
+}
+.opBtn#addition,
+.opBtn#subtraction,
+.opBtn#multiplication,
+.opBtn#division {
+    font-size: 24px;
+}
+
+.kpBtn {
+    width: 30%;
+    font-size: 18px;
+}
+
+.kpBtn#one {
+    order:1;
+}
+.kpBtn#two {
+    order:2;
+}
+.kpBtn#three {
+    order:3;
+}
+.kpBtn#four {
+    order:4;
+}
+.kpBtn#five {
+    order:5;
+}
+.kpBtn#six {
+    order:6;
+}
+.kpBtn#seven {
+    order:7;
+}
+.kpBtn#eight {
+    order:8;
+}
+.kpBtn#nine {
+    order:9;
+}
+.kpBtn#plusMinus {
+    order:10;
+}
+.kpBtn#zero {
+    order:11;
+}
+.kpBtn#decimalPoint {
+    order: 12;
+}
