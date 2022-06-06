@@ -7,7 +7,7 @@
     <link rel="stylesheet" 
     href="https://dannarhetoshi.github.io/DH-HolyGrail/home/DH-HolyGrail.css">
     <link rel="stylesheet" href="./style.css">
-    <script type="text/javascript" src="./calculator.js"></script>
+    <script type="text/javascript" src="./calculator.js" defer></script>
     <title>Document</title>
 </head>
 <body class="DH-HG-body">
@@ -18,8 +18,12 @@
         <main class="DH-HG-content">
             <div class="calc-container">
                 <div class="viewPort">
-                    <div class="viewPort" id="formula">formula</div>
-                    <div class="viewPort" id="result">result</div>
+                    <div class="viewPortInner">
+                        <div class="viewPort" id="formula"></div>
+                    </div>
+                    <div class="viewPortInner">
+                        <div class="viewPort" id="result"></div>
+                    </div>
                 </div>
                 <div class="inputButtons">
                     <div class="keypad">
@@ -67,8 +71,64 @@
 
     </div>
 
-    <script>
+    <script defer>
+    /*     let formulaApp = document.querySelector('#formula');
+        let res = 0;
+        let calculate = [];
+    
+        let calc1 = "";
+        let calcOp = 0;
+        let calc2 = "";
+      
+        function kpBtnClick(e){
+            if (this.innerHTML == "=") {
+                const equation = formulaApp.innerHTML
+                console.log(equation);
+                calcOp = equation.split(/[0-9]/).join('');
+                calculate = Array.from(equation.split(/[^0-9]/));
+                
+                calc1 = parseInt(calculate.slice(0));
+                calc2 = parseInt(calculate.slice(1));
+                
+                console.log(calc1);
+                console.log(calcOp);
+                console.log(calc2);
+                
+                switch (calcOp) {
+                    case "+":
+                        res = addition(calc1,calc2);
+                        document.querySelector('#result').innerHTML = String("= " + res);
+                        console.log(res);
+                        break;
+                    case "-":
+                        res = subtraction(calc1,calc2);
+                        document.querySelector('#result').innerHTML = String("= " + res);
+                        console.log(res);
+                        break;
+                    case "x":
+                        res = multiplication(calc1,calc2);
+                        document.querySelector('#result').innerHTML = String("= " + res);
+                        console.log(res);
+                        break;
+                    case "/":
+                        res = division(calc1,calc2).toFixed(5);
+                        document.querySelector('#result').innerHTML = String("= " + res);
+                        console.log(res);
+                        break;
+                }
+                //console.log(parseInt(calculate[0]));
 
+                return;
+            }
+            const appendForm = (this.innerHTML + ' ');
+            formulaApp.append(this.innerHTML);
+            //console.log(formulaApp.innerHTML);
+        }
+      
+      
+      const kpButtons = document.querySelectorAll('button');
+      kpButtons.forEach(button => button.addEventListener('click', kpBtnClick));
+ */
     </script>
 </body>
 </html>
