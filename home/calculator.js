@@ -1,17 +1,18 @@
 
 let formulaApp = document.querySelector('#formula');
-
-/* let calculate = [];
-let calc1 = "";
-let calcOp = 0;
-let calc2 = ""; */
+let resApp = document.querySelector('Eresult');
 let appendForm = [];
+
+
+// capture button clicks for keypad, operators, clear button.
+// special logic for the "=" operator to perform the operation.
+// special logic for the "Clear" button to clear the fields.
 
 function kpBtnClick(e){
     if (this.innerHTML == "=") {
-        performCalculation(e);
+        performCalculation(e); //call the calculation function
     } else if (this.innerHTML == "Clear") {
-      clearForm();
+      clearForm(); //call the clear form function
       return;
     }
     appendForm.push(this.innerHTML);
@@ -31,25 +32,25 @@ function performCalculation() {
   console.log(calcOp);
   console.log(calc2); */
   
-  switch (calcOp) {
+  switch (calcOp) { //switch for each operator
       case "+":
           res = addition(calc1,calc2);
-          document.querySelector('#result').innerHTML = String("= " + res);
+          resApp.innerHTML = String("= " + res);
 //        console.log(res);
           break;
       case "-":
           res = subtraction(calc1,calc2);
-          document.querySelector('#result').innerHTML = String("= " + res);
+          resApp.innerHTML = String("= " + res);
 //        console.log(res);
           break;
       case "*":
           res = multiplication(calc1,calc2);
-          document.querySelector('#result').innerHTML = String("= " + res);
+          resApp.innerHTML = String("= " + res);
 //        console.log(res);
           break;
       case "/":
           res = division(calc1,calc2).toFixed(5);
-          document.querySelector('#result').innerHTML = String("= " + res);
+          resApp.innerHTML = String("= " + res);
 //        console.log(res);
           break;
   }
