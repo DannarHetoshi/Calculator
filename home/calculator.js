@@ -11,16 +11,16 @@ let appendForm = [];
 function kpBtnClick(e){
     if (this.innerHTML == "=") {
         const equation = formulaApp.innerHTML
-        //console.log(equation);
-        calcOp = equation.split(/[0-9]/).join('');
-        calculate = Array.from(equation.split(/[^0-9]/));
+        console.log(equation);
+        calcOp = equation.split(/[0-9$\s$]/).join('');
+        calculate = Array.from(equation.split(/[^0-9]+\s/));
         
         calc1 = parseInt(calculate.slice(0));
         calc2 = parseInt(calculate.slice(1));
         
-/*         console.log(calc1);
+        console.log(calc1);
         console.log(calcOp);
-        console.log(calc2); */
+        console.log(calc2);
         
         switch (calcOp) {
             case "+":
