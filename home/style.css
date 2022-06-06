@@ -51,8 +51,16 @@
 
 .inputButtons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+}
+
+.inputBtnRowOne {
+    display: flex;
+}
+
+.inputBtnRowTwo {
+    display: flex;
 }
 
 .keypad {
@@ -90,6 +98,13 @@
 .opBtn#multiplication,
 .opBtn#division {
     font-size: 24px;
+}
+
+.clearBtn {
+    flex: 1;
+    margin: 2px;
+    border: 2px solid black;
+    border-radius: 4px;
 }
 
 .kpBtn {
