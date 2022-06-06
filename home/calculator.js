@@ -60,9 +60,9 @@ function performCalculation() {
 }
 
 function clearForm() {
-  document.querySelector('#formula').innerHTML = '';
+  formulaApp.innerHTML = '';
   appendForm = [];
-  document.querySelector('#result').innerHTML = '';
+  resApp.innerHTML = '';
 }
 
 function addition(a,b) {
