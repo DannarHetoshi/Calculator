@@ -84,7 +84,7 @@
     margin: 2px;
     flex: .25;
     gap: 2px;
-    padding: 2px;
+    padding: 2px 6px;
     justify-content: space-evenly;
 }
 
@@ -92,6 +92,9 @@
     width: 100%;
     aspect-ratio: 1/1;
     padding: 0px 12px;
+    background-color: #1b5881;
+    color: white;
+    font-family: furoreregular;
 }
 .opBtn#addition,
 .opBtn#subtraction,
@@ -103,14 +106,25 @@
 .clearBtn {
     flex: 1;
     margin: 2px;
-    border: 2px solid black;
-    border-radius: 4px;
     min-height: 40px;
+    background-color: #7fd836;
+    background-image: linear-gradient(#7ae522,#47b200);
+    background-size: 200% auto;
+    border: 0;
+    border-bottom: 2px solid #1ba500;
+    border-right: 2px solid #1ba500;
+    border-radius: 6px;
+    text-shadow: 0 0 0.5rem black;
+    color: white;
+    font-size: 18px;
+    font-family: furoreregular;
 }
 
 .kpBtn {
     width: 30%;
     font-size: 18px;
+    background-color: #7fccff;
+    font-family: furoreregular;
 }
 
 .kpBtn#one {

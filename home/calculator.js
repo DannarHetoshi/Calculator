@@ -42,7 +42,7 @@ function performCalculation() {
           document.querySelector('#result').innerHTML = String("= " + res);
 //        console.log(res);
           break;
-      case "x":
+      case "*":
           res = multiplication(calc1,calc2);
           document.querySelector('#result').innerHTML = String("= " + res);
 //        console.log(res);
