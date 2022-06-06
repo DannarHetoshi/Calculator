@@ -1,6 +1,6 @@
 
 let formulaApp = document.querySelector('#formula');
-let resApp = document.querySelector('Eresult');
+let resApp = document.querySelector('#result');
 let appendForm = [];
 
 
