@@ -1,131 +1,148 @@
 
-let formulaApp = document.querySelector('#formula');
-let resApp = document.querySelector('#result');
+let input = document.querySelector('#input');
+let output = document.querySelector('#output');
+let operator = document.querySelector('#operator');
 let appendForm = [];
 let appendRes = [];
 let res = 0;
 let calcOp = "";
+let expressOne = null;
+let expressTwo = null;
+
 
 // capture button clicks for keypad, operators, clear button.
 // special logic for the "=" operator to perform the operation.
 // special logic for the "Clear" button to clear the fields.
 
 function clearForm(e) {
-  formulaApp.innerHTML = '';
+  input.innerHTML = '';
+  operator.innerHTML = '';
+  output.innerHTML = '';
   appendForm = [];
-  resApp.innerHTML = '';
+  calcOp = "";
+  expressOne = null;
+  expressTwo = null;
 }
 
 function opBtnClick(e){
-  if (this.innerHTML == "=") {
-//  console.log(calcOp);
-    performCalculation(e) //call the calculation function
-  } else if (resApp.innerHTML == "" && this.innerHTML != "=") {
-    calcOp = this.innerHTML;
+  
+
+  if (input.innerHTML==""){
+    return;
+  } 
+  else if (expressOne == null) { 
+    expressOne = parseFloat(input.innerHTML);
+    //console.log(expressOne);
+    calcOp = this.innerHTML
+    operator.innerHTML = calcOp;
     appendForm.push(this.innerHTML);
-    formulaApp.innerHTML = appendForm.join('');
-  } else if (resApp.innerHTML != "" && this.innerHTML != "=") {
-    calcOp = this.innerHTML;
-    appendForm = appendRes;
-    appendRes.push(this.innerHTML);
-    formulaApp.innerHTML = (resApp.innerHTML + appendRes.join(''));
-  }
+    output.innerHTML = input.innerHTML
+    input.innerHTML = "";
+    appendRes = appendForm;
+    appendForm = [];
+    return;
+  } 
+  else if (expressOne != null) {
+    console.log(calcOp);
+    expressTwo = parseFloat(input.innerHTML);
+    const tempOp = this.innerHTML;
+    //operator.innerHTML = calcOp;
+    performCalculation();
+    calcOp = tempOp;
+    operator.innerHTML = calcOp;
+    return;
+    //console.log(calcOp);
+  } 
+  
+/*   if (this.innerHTML == "=") {
+//  console.log(calcOp);
+    performCalculation() //call the calculation function
+    calcOp = "";
+    return;
+  } */
 }
 
 function kpBtnClick(e){
 
-  if (resApp.innerHTML == "" && this.innerHTML != "+/-") {
-    //console.log(this.innerHTML);
+  if (this.innerHTML != "+/-"){
     appendForm.push(this.innerHTML);
-    formulaApp.innerHTML = appendForm.join('');
-    //console.log(formulaApp.innerHTML); */
-  } else if (resApp.innerHTML != "" && this.innerHTML != "+/-") {
-    //console.log(appendForm);
-    //console.log(appendRes);
-    appendForm = appendRes;
-    appendRes.push(this.innerHTML);
-    formulaApp.innerHTML = (resApp.innerHTML + appendRes.join(''));
+    input.innerHTML = appendForm.join('');
+  }
 
-  } else if (this.innerHTML == "+/-") {
-    if (formulaApp.innerHTML != "") {
-      appendForm = appendRes;
-      formulaApp.innerHTML = (resApp.innerHTML + appendRes.join(''));
-      let firstChar = formulaApp.innerHTML;
-    }
-    
-    let firstChar = formulaApp.innerHTML;
+  if (this.innerHTML == "+/-") {
+    let firstChar = input.innerHTML;
     //console.log(firstChar);
     //console.log(firstChar.charAt(0));
     const arr = Array.from(firstChar);
     switch (firstChar.charAt(0)){
       default:
         arr.splice(0,0, "-");
-        formulaApp.innerHTML = arr.join('');
+        input.innerHTML = arr.join('');
         //console.log(arr);
         break;
       case "-":
         arr.splice(0,1);
-        formulaApp.innerHTML = arr.join('');
+        input.innerHTML = arr.join('');
         //console.log(arr);
         break;
     }
-  }
-}
-
-function prepareCalc() {
-  formulaApp.innerHTML = resApp.innerHTML.split(/[^0-9]+\s/).join('');
-  const calc1 = parseFloat(formulaApp.innerHTML);
-  //console.log(resApp.innerHTML);
-  //console.log(this);
-  appendForm.push(this.innerHTML);
-  formulaApp.innerHTML = appendForm.join('');
-  
+  } 
 }
 
 function performCalculation() {
+    
+    //console.log(expressOne);
+    
+    //console.log(expressTwo);
 
-  const equation = formulaApp.innerHTML
-//  console.log(equation);
-  const calculate = Array.from(equation.split(/[+-]?[^\d]+\.?\s/));
-//  console.log(calculate);
-
-  const calc1 = parseFloat(calculate.slice(0));
-//  console.log(calc1)
-
-//  console.log(calcOp);
-
-  const calc2 = parseFloat(calculate.slice(1));
-//  console.log(calc2);
-
-  
   switch (calcOp) { //switch for each operator
       case " + ":
-          res = addition(calc1,calc2);
-          resApp.innerHTML = res;
-          appendRes = [];          
+          res = addition(expressOne,expressTwo);
+          expressOne = res;
+          output.innerHTML = expressOne;
+          //operator.innerHTML = calcOp
+          //console.log(calcOp);
+          appendForm = [];
+          expressTwo = null;
           console.log(res);
           break;
       case " - ":
-          res = subtraction(calc1,calc2);
-          resApp.innerHTML = res;
-          appendRes = [];
+          res = subtraction(expressOne,expressTwo);
+          expressOne = res;
+          output.innerHTML = expressOne;
+          //operator.innerHTML = calcOp
+          //console.log(calcOp);
+          appendForm = [];
+          expressTwo = null;
           console.log(res);
           break;
       case " * ":
-          res = multiplication(calc1,calc2);
-          resApp.innerHTML = res;
-          appendRes = [];
+          res = multiplication(expressOne,expressTwo);
+          expressOne = res;
+          output.innerHTML = expressOne;
+          //operator.innerHTML = calcOp
+          //console.log(calcOp);
+          appendForm = [];
+          expressTwo = null;
           console.log(res);
           break;
       case " / ":
-          res = division(calc1,calc2).toFixed(5);
-          resApp.innerHTML = res;
-          appendRes = [];
+          res = division(expressOne,expressTwo).toFixed(5);
+          expressOne = res;
+          output.innerHTML = expressOne;
+          //operator.innerHTML = calcOp;
+          //console.log(calcOp);
+          appendForm = [];
+          expressTwo = null;
           console.log(res);
           break;
+      case "=":
+          //operator.innerHTML = calcOp;
+          appendForm = [];
+          expressTwo = null;
   }
   //console.log(parseInt(calculate[0]));
-
+  calcOp = "";
   return;
 }
 
